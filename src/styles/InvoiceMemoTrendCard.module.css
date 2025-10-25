@@ -1,0 +1,42 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  flex: 1; /* Let it grow to fill space */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Ensure it matches height with sibling */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tabsButton {
+  background: var(--primary-color);
+  border: none;
+  padding: 8px 12px;
+  margin-left: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+
+.activeTab {
+  background: var(--primary-color-hover);
+  color: var(--text-color);
+}
+
+.chartWrapper {
+  flex: 1;
+  padding-bottom: 12px;
+}
+
+.chartWrapper :focus {
+  outline: none;
+}

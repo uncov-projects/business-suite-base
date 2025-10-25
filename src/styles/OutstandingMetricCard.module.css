@@ -1,0 +1,124 @@
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex: 1;
+  max-width: 420px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h3 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.header p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.totalAmount {
+  background: #d0ccff;
+  color: #5c4dfe;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.chart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.chartCenter {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.smallText {
+  font-size: 18px;
+}
+
+.chart :focus {
+  outline: none;
+}
+
+.collectionRate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d0ccff;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.collectionRate span {
+  font-size: 14px;
+  color: #374151;
+}
+
+.collectionValue {
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.collected {
+  font-weight: 500;
+  color: #374151;
+  margin-left: 5px;
+}
+
+.legendItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.legendLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.legendText {
+  display: flex;
+  flex-direction: column;
+}
+
+.legendText strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.legendText p {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.legendAmount {
+  color: #111827;
+  font-weight: 700;
+  font-size: 14px;
+}

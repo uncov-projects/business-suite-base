@@ -1,0 +1,246 @@
+
+/* NOTES SECTION */
+.Notes {
+  margin-top: 20px;
+  padding: 0; /* remove extra padding */
+}
+
+/* Title of Notes */
+.Notes h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  padding: 0 0 10px 0; /* Only bottom padding */
+}
+
+/* Container for all notes and add button */
+.note-section {
+   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  margin: 10px 0px;
+}
+
+/* Add New Note Box */
+.add-note-box {
+  width: 180px;
+  height: 180px;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background-color: #fff;
+}
+.add-note-box.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;   /* truly locked */
+}
+
+.add-note-box:hover {
+  background: #f3f3f3;
+  color: #000;
+}
+
+/* Existing Note Block */
+.note-block {
+  position: relative;
+  width: 180px;
+  min-height: 160px;
+  background-color: #f0f6ff;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s ease;
+  padding-bottom: 24px;
+}
+.note-block:hover {
+  transform: translateY(-4px);
+}
+.note-header {
+  background-color: var(--primary-color); /* deep purple */
+  color: white;
+  padding: 4px 0; /* only top and bottom padding */
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;         /* remove default margins */
+  width: 100%;       /* full width */
+  line-height: 1.2;  /* reduce line height if needed */
+  border-bottom: 1px solid var(--primary-color); /* optional for clean separation */
+}
+
+.note-content {
+  /* padding-left: 20px; */
+  padding: 5px;
+  font-size: 14px;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  margin-top: 10px;
+}
+.note-edit-icon {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-size: 18px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.note-edit-icon:hover {
+  color: #000;
+}
+/* Note Popup */
+.note-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.note-popup {
+  background: white;
+  padding: 30px;
+  width: 820px;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: transform 0.2s ease;
+}
+
+.note-popup h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.note-popup input,
+.note-popup select {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+
+.note-popup label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 13px;
+  color: #555;
+}
+
+.note-popup input,
+.note-popup select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.note-popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.popup-save-btn,
+.popup-cancel-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popup-save-btn {
+  background-color: #695cfe;
+  color: white;
+}
+
+.popup-cancel-btn {
+  background-color: #eee;
+  color: #333;
+}
+
+.add-item .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.note-scroll-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.note-scroll-inner {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.item-limit-msg {
+  margin-left: 8px;
+  color: #b91c1c;   /* red‑700 */
+  font-size: 12px;
+  font-weight: 500;
+}
+.add-item .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item-limit-msg {
+  margin-left: 8px;
+  color: #b91c1c;        /* red tone */
+  font-size: 12px;
+  font-weight: 500;
+}
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-header h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.popup-header .bx-x {
+  font-size: 50px;
+  color: #bf1212;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.popup-header .bx-x:hover {
+  color: #000;
+}

@@ -1,0 +1,181 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Wrapper for customer UI */
+  .customer-wrapper {
+    padding: 24px;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--body-color); /* Light background to contrast sidebar */
+    min-height: 100vh;
+  }
+  
+  
+  .customer-heading {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: auto;
+  }
+  
+  /* Top Action Buttons */
+  .topActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+  }
+  
+  .actionButtons {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .exportBtn,
+  .createBtn {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--tran-05);
+  }
+  
+  .exportBtn {
+    background-color: var(--primary-color-light);
+    color: #333;
+  }
+  
+  .createBtn {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+/* Table Styles */
+.customer-table {
+    width: 100%;
+    background: #fff;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .customer-table th, 
+  .customer-table td {
+    padding: 14px;
+    text-align: left;
+    color: #333;
+  }
+  
+  .customer-table th {
+    text-align: left;
+    padding: 14px;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 14px;
+  }
+
+  /* Filters */
+  .filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1;
+  max-width: 70%;
+}
+
+.searchIcon {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.searchIcon input {
+  padding-right: 30px; /* Only add space inside, don't resize the input box */
+}
+
+.searchIcon i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.searchInput{
+  padding: 8px 12px; /* reduced padding for smaller input */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 200px;
+}
+
+.searchInput:focus{
+  border-color: #695cfe;
+}
+
+.filterIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.iconBtn {
+  background: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconBtn:hover {
+  border-color: #695cfe;
+  color: #695cfe;
+}
+
+.customer-table .noDataRow {
+  text-align: center;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+  .body.dark .customer-table {
+    background-color: #2a2a3c;
+  }
+  
+  body.dark .customer-table th {
+    background-color: #3c3c55;
+    color: #dcdcdc;
+  }
+  
+  body.dark .customer-table td {
+    color: #f0f0f0;
+    border-bottom: 1px solid #444;
+  }
+  
+  
+  

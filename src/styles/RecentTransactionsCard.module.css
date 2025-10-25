@@ -1,0 +1,63 @@
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+  align-items: center;
+}
+
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.paid {
+  background: rgb(208, 204, 255);
+  color: #695cfe;
+}
+
+.unpaid {
+  background: #f2ccff;
+  color: #cb34fe;
+}
+
+.overdue {
+  background: rgb(255, 204, 204);
+  color: #fe4d4d;
+}
+
+.purple {
+  color: #695cfe;
+  font-weight: 600;
+}
+
+.red {
+  color: #fe4d4d;
+  font-weight: 600;
+}

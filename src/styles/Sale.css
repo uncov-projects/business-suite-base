@@ -1,0 +1,796 @@
+/* sale.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Wrapper for Inventory UI */
+.inventory-wrapper {
+  padding: 24px;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--body-color); /* Light background to contrast sidebar */
+  min-height: 100vh;
+}
+
+
+.sales-heading {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: auto;
+}
+
+/* Top Action Buttons */
+.topActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.exportBtn,
+.createBtn {
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--tran-05);
+}
+
+.exportBtn {
+  background-color: var(--primary-color-light);
+  color: #333;
+}
+
+.createBtn {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Cards Section */
+.cardsContainer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  flex: 1 1 calc(20% - 16px);
+  min-width: 180px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--tran-03);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0px;
+  margin-bottom: 6px;
+  margin-left: 8px;
+}
+
+.cardIcon {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardLabel {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+.cardLabel span {
+  font-weight: normal;
+  color: #999;
+}
+
+.cardAmountTrend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0px;
+  margin-bottom: 6px;
+  margin-left: 8px;
+}
+
+.cardAmount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.green {
+  color: green;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.red {
+  color: red;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Filters and Search */
+.filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1;
+  max-width: 70%;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  gap: 12px;
+}
+
+.searchIcon {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.searchIcon input {
+  padding-right: 30px; /* Only add space inside, don't resize the input box */
+}
+
+.searchIcon i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.searchInput,
+.dateFilter {
+  padding: 8px 12px; /* reduced padding for smaller input */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 200px;
+}
+
+.searchInput:focus,
+.dateFilter:focus {
+  border-color: #695cfe;
+}
+
+.filterIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.calendarIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.calendarIcon .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.calendarIcon .react-datepicker__input-container {
+  width: 100%;
+}
+
+
+.calendarIcon i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.iconBtn {
+  background: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconBtn:hover {
+  border-color: #695cfe;
+  color: #695cfe;
+}
+
+
+/* Table Styles */
+.inventory-table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.inventory-table td {
+  padding: 14px;
+  text-align: left;
+  color: #333;
+  font-size: 14px;
+}
+
+.inventory-table th {
+  text-align: left;
+  padding: 14px;
+  background: #f1f1f1;
+  color: #333;
+  font-size: 14px;
+}
+
+.inventory-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+.inventory-btn {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.inventory-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.inventory-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+body.dark .inventory-wrapper {
+  background-color: #121212; /* Much darker than sidebar */
+  color: #e4e4e4;
+}
+
+
+body.dark .inventory-table {
+  background-color: #2a2a3c;
+}
+
+body.dark .inventory-table th {
+  background-color: #3c3c55;
+  color: #dcdcdc;
+}
+
+body.dark .inventory-table td {
+  color: #f0f0f0;
+  border-bottom: 1px solid #444;
+}
+
+body.dark .inventory-btn {
+  background-color: #4a4a6a;
+  color: #fff;
+}
+
+body.dark .exportBtn,
+body.dark .importBtn {
+  background-color: #333;
+  color: #eee;
+}
+
+body.dark .createBtn {
+  background-color: #5d50e3;
+  color: #fff;
+}
+
+body.dark .status-label,
+body.dark .status {
+  color: #fff;
+}
+
+body.dark .draft {
+  background-color: #666;
+}
+
+/* body.dark .open {
+  background-color: #836fff;
+} */
+
+body.dark .overdue {
+  background-color: #ff5c5c;
+}
+
+body.dark .paid {
+  background-color: #39d353;
+}
+
+body.dark .searchInput,
+body.dark .dateFilter {
+  background-color: #2a2a3c;
+  color: #fff;
+  border-color: #444;
+}
+body.dark .card {
+  background: #2a2a3c; /* Dark background for card */
+  color: #e4e4e4; /* Light text color for readability */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Light shadow to contrast dark background */
+}
+
+body.dark .card:hover {
+  background: #3c3c55; /* Darker background on hover */
+  transform: translateY(-4px);
+}
+
+body.dark .cardLabel {
+  color: #ccc; /* Lighter color for labels */
+}
+
+body.dark .cardAmount {
+  color: #fff; /* White color for amount */
+}
+
+body.dark .cardAmountTrend {
+  color: #dcdcdc; /* Light color for trends */
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  background: linear-gradient(to bottom right, #ffffff, #f9f9f9);
+  padding: 30px;
+  border-radius: 12px;
+  width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #ffffff; /* White background */
+  color: #000000;            /* Black text */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 14px;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  /* background-color: #ffffff; Ensure background stays white on focus */
+  color: #000000;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-buttons button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.modal-buttons button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal-buttons button:last-child:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+.modal h3 {
+  text-align: center;
+  color: #6c757d; /* Grey color */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.modal .customer-search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.modal .customer-search-input {
+  width: 100%;
+  background: white;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.customer-search-dropdown {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.customer-search-item {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  cursor: pointer;
+}
+
+.customer-search-item:hover {
+  background: #ccc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.status-label {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+
+/* Paid: Green Text on Light Green Background */
+.paid {
+  color: #00a86b; /* Medium green */
+  background-color: #d0f2e4; /* Very light green */
+}
+
+/* Unpaid: Yellow Text on Soft Yellow Background */
+.unpaid {
+  color: #d97706; /* Rich amber/orange */
+  background-color: #fff7d6; /* Soft yellow */
+}
+
+/* Draft: Black on Light Gray */
+.draft {
+  color: #111827; /* Very dark gray */
+  background-color: #f3f4f6; /* Light gray */
+}
+
+/* Overdue: Red Text on Light Red Background */
+.overdue {
+  color: #d61f69; /* Vivid pink/red */
+  background-color: #ffe1ec; /* Light pink */
+}
+
+.inventory-table .noDataRow {
+  text-align: center;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+/* changes */
+
+.inventory-table .noDataRow {
+  text-align: center;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.type-cell-with-actions {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-icons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #4a4a4a;
+  font-size: 16px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.15);
+  color: #007bff;
+}
+
+.icon-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.icon-btn.delete:hover {
+  color: #dc3545;
+}
+.table-icon-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  margin: 0 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
+}
+
+.table-icon-btn.edit {
+  color: #1d4ed8; /* blue-700 */
+}
+
+.table-icon-btn.edit:hover {
+  background-color: rgba(29, 78, 216, 0.1); /* light blue bg */
+  color: #1e40af; /* blue-800 */
+}
+
+.table-icon-btn.edit:disabled {
+  color: #9ca3af; /* gray-400 */
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+
+.filterDropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 240px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 100;
+  animation: fadeInSlideDown 0.3s ease forwards;
+}
+
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterCategory {
+  margin-bottom: 8px;
+}
+
+.filterCategoryBtn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.filterCategoryBtn:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.activeFilter {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.nestedFilterContent {
+  margin-top: 6px;
+  padding-left: 12px;
+  border-left: 2px solid var(--primary-color);
+  font-size: 13px;
+}
+
+.nestedRowGrid {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.selectInput,
+.numberInput {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.optionBtn {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.optionBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.selectedOption {
+  color: white;
+}
+
+.selectInput,
+.numberInput,
+.dateFilter {
+  background-color: white !important;
+  color: black !important;
+}
+.methodGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.methodOption {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.methodOption:hover {
+  background-color: #f0f0f0;
+}
+
+.active {
+  font-weight: bold;
+  /* border: 2px solid #000; */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure black text for Invoice, Memo, Sale type filter buttons */
+.optionBtn {
+ color: black;
+}
+
+.statusFilterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}

@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.settingsContainer {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--body-color);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--sidebar-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.settingswrapper {
+  display: flex;
+  height: calc(100vh - 80px); 
+  overflow: hidden;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.settingsheading {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: auto;
+}
+
+.settingsidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+  background-color: #f9fafb;
+  padding: 16px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.sidebarButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #374151;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin-top: 8px;
+}
+
+.sidebarButton:hover {
+  background-color: #f3f4f6;
+}
+
+.active {
+  background-color: #eef2ff;
+  color: #1d4ed8;
+  border: 1px solid #c7d2fe;
+}
+
+.sidebarButton i {
+  font-size: 20px;
+}
+
+.settingscontent {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #f9fafb;
+}
+
+.accountContainer {
+  padding: 24px;
+}
+
+.accountHeading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.accountSubheading {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.profileCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cardSubheading {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.profileTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.avatarCircle {
+  width: 80px;
+  height: 80px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #374151;
+  font-size: 24px;
+}
+
+.photoButton {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.photoButton:hover {
+  background: #f9fafb;
+}
+
+.detailRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.detailBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detailBox label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.detailInput {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #f9fafb;
+  font-size: 14px;
+  color: #374151;
+}
+
+.inventoryContainer {
+  padding: 24px;
+}
+
+.inventoryHeading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.inventorySubheading {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.inventoryCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.optionButton {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.optionButton:hover {
+  background: #f9fafb;
+}
+
+.optionButton i {
+  font-size: 18px;
+}
+
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popupCard {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.popupHeader h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #374151;
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.popupBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textInput {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkboxGroup label {
+  font-size: 14px;
+  color: #374151;
+}
+
+.primaryButton {
+  padding: 10px 16px;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.primaryButton:hover {
+  background: #1e40af;
+}
+
+.dangerButton {
+  padding: 10px 16px;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.dangerButton:hover {
+  background: #b91c1c;
+}
+
+
+.existingList {
+  margin-top: 20px;
+}
+
+.existingList h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.existingList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.existingList li {
+  background: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.backupContainer {
+  padding: 24px;
+}
+
+.backupHeading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.backupSubheading {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.backupCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.backupButtonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.optionButton {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.optionButton:hover {
+  background: #f9fafb;
+}
+
+.optionButton i {
+  font-size: 18px;
+}

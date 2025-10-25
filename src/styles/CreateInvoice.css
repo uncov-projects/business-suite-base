@@ -1,0 +1,717 @@
+/* CreateInvoice.css */
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Invoice Area */
+.invoice-main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* Header */
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.invoice-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.invoice-actions button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-draft-btn {
+  background-color: #ddd;
+  color: #000; /* Black text */
+}
+
+.save-continue-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Invoice Body */
+.invoice-body {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left Section */
+.invoice-left {
+  flex: 2;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Company Info */
+.company-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-placeholder img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.company-details {
+  margin-left: 20px;
+}
+
+.company-details .customer-search-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.company-details .customer-search-input {
+  width: 100%;
+  background: white;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.company-details .customer-address-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.company-details .customer-address-input {
+  margin-top: 10px;
+  width: 100%;
+  background: white;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.company-details .customer-search-dropdown {
+  position: absolute;
+  top: 100%; /* place right below the input */
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.company-details .customer-search-item {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  cursor: pointer;
+}
+
+.company-details .customer-search-item:hover {
+  background: #ccc;
+}
+
+.item-search-wrapper{
+  position: relative;
+}
+
+.item-search-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.item-search-item {
+  background: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  color: #000;
+  cursor: pointer;
+}
+
+.item-search-item:hover {
+  background: #f0f0f0;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Invoice Section */
+.invoice-section h3 {
+  color: #000; /* Black heading */
+  margin-bottom: 15px;
+}
+
+/* Form inputs */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.dateicon::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* inverts the white icon to black */
+  cursor: pointer;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-group label {
+  color: #000; /* Black labels */
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+/* Items Table */
+.item-table {
+  margin-top: 20px;
+}
+
+.item-header,
+.item-row {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 1fr 1fr 1fr 0.25fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.item-header {
+  font-weight: bold;
+  color: #000; /* Black headers */
+  border-bottom: 1px solid #ccc;
+}
+
+.item-row input {
+  width: 100%;
+}
+
+.delete-icon {
+  background: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: #e53935;
+}
+
+.item-row .delete-icon i {
+  font-size: 20px;
+}
+
+/* Add Item Button */
+.add-item button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #5e5df0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.add-item .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item-limit-msg {
+  margin-left: 8px;
+  color: #b91c1c;   /* red‑700 */
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Right Section */
+.invoice-right {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 550px;
+  max-height: 700px;
+}
+
+.invoice-right h3 {
+  color: #000; /* Black heading */
+  margin-bottom: 20px;
+}
+
+/* Date Fields */
+.date-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.calendar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.date-filter {
+  width: 100%;
+  padding-right: 30px; /* Space for icon */
+  position: relative;
+  z-index: 1;
+}
+
+.react-datepicker-wrapper {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+}
+
+.calendar-icon-inside {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(42, 41, 41);
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 2; /* Above input */
+}
+
+/* Summary */
+.summary {
+  margin-top: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.add-discount a {
+  color: #5e5df0;
+  font-size: 14px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #000;
+}
+
+.input-amount-paid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.amount-paid-input {
+  width: 120px;              
+  padding: 6px;
+  margin-left: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.balance-due {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.back-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.back-button {
+  background-color: #5e5df0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add Discount Section */
+.add-discount {
+  margin: 16px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.add-discount a {
+  display: inline-block;
+  color: #1f6feb;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-discount a:hover {
+  background-color: #e9f0ff;
+  color: #174ea6;
+  text-decoration: underline;
+}
+
+/* Discount Input Wrapper */
+.discount-input-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Discount Dropdown */
+.discount-type {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #000; /* Black text */
+  min-width: 120px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Discount Input */
+.discount-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #000; /* Black text */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.discount-input:focus {
+  border-color: #1f6feb;
+  outline: none;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #5e5df0;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* Item Row Inputs */
+.item-row input {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* NOTES SECTION */
+.Notes {
+  margin-top: 20px;
+  padding: 0; /* remove extra padding */
+}
+
+/* Title of Notes */
+.Notes h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  padding: 0 0 10px 0; /* Only bottom padding */
+}
+
+/* Container for all notes and add button */
+.note-section {
+   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  margin: 10px 0px;
+}
+
+/* Add New Note Box */
+.add-note-box {
+  width: 180px;
+  height: 180px;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background-color: #fff;
+}
+.add-note-box.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;   /* truly locked */
+}
+
+.add-note-box:hover {
+  background: #f3f3f3;
+  color: #000;
+}
+
+/* Existing Note Block */
+.note-block {
+  position: relative;
+  width: 180px;
+  min-height: 160px;
+  background-color: #f0f6ff;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s ease;
+  padding-bottom: 24px;
+}
+.note-block:hover {
+  transform: translateY(-4px);
+}
+.note-header {
+  background-color: var(--primary-color); /* deep purple */
+  color: white;
+  padding: 4px 0; /* only top and bottom padding */
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;         /* remove default margins */
+  width: 100%;       /* full width */
+  line-height: 1.2;  /* reduce line height if needed */
+  border-bottom: 1px solid var(--primary-color); /* optional for clean separation */
+}
+
+.note-content {
+  /* padding-left: 20px; */
+  padding: 5px;
+  font-size: 13px;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  margin-top: 10px;
+}
+.note-edit-icon {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-size: 18px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.note-edit-icon:hover {
+  color: #000;
+}
+/* Note Popup */
+.note-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.note-popup {
+  background: white;
+  padding: 30px;
+  width: 820px;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: transform 0.2s ease;
+}
+
+.note-popup h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.note-popup input,
+.note-popup select {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+
+.note-popup label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 13px;
+  color: #555;
+}
+
+.note-popup input,
+.note-popup select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.note-popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.popup-save-btn,
+.popup-cancel-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popup-save-btn {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.popup-cancel-btn {
+  background-color: #eee;
+  color: #333;
+}
+
+.add-item .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.note-scroll-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.note-scroll-inner {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.item-limit-msg {
+  margin-left: 8px;
+  color: #b91c1c;   /* red‑700 */
+  font-size: 12px;
+  font-weight: 500;
+}
+.add-item .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item-limit-msg {
+  margin-left: 8px;
+  color: #b91c1c;        /* red tone */
+  font-size: 12px;
+  font-weight: 500;
+}

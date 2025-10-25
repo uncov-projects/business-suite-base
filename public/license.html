@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enter License</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+      }
+
+      .left,
+      .right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .left {
+        background-color: #333;
+        color: #fff;
+        flex-direction: column;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .left .bx {
+        font-size: 72px;
+        margin-bottom: 24px;
+      }
+
+      .left p {
+        font-size: 18px;
+        opacity: 0.85;
+      }
+
+      .right {
+        background-color: #fff;
+        flex-direction: column;
+        padding: 40px;
+      }
+
+      .right h2 {
+        font-size: 28px;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .right p {
+        margin-bottom: 20px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      .input-group .bx {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #555;
+      }
+
+      .input-group input {
+        border: none;
+        outline: none;
+        flex: 1;
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 400px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 14px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        background-color: #222;
+      }
+
+      .help {
+        margin-top: 16px;
+        font-size: 13px;
+        color: #888;
+      }
+
+      .help a {
+        color: #555;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <i class='bx bx-key'></i>
+      <p>Your license key provides access to all premium features</p>
+    </div>
+
+    <div class="right">
+      <h2>License Key</h2>
+      <p>Please enter your license key to continue</p>
+
+      <div class="input-group">
+        <i class='bx bx-key'></i>
+        <input id="licenseInput" type="text" placeholder="Enter license key" />
+      </div>
+
+      <button class="btn" onclick="submit()">Activate License</button>
+      <div class="help">Need help? <a>Contact support</a></div>
+    </div>
+
+    <script>
+      console.log("electronAPI:", window.electronAPI);
+
+      const submit = () => {
+        const key = document.getElementById("licenseInput").value;
+        console.log("Submitting key:", key);
+        if (window.electronAPI?.submitLicense) {
+          window.electronAPI.submitLicense(key);
+        } else {
+          alert("Electron API not available");
+        }
+      };
+
+      if (window.electronAPI?.onInvalidLicense) {
+        window.electronAPI.onInvalidLicense(() => {
+          alert("Invalid License Key");
+        });
+      } else {
+        console.warn("onInvalidLicense not set");
+      }
+    </script>
+  </body>
+</html>

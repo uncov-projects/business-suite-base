@@ -1,0 +1,399 @@
+.memo-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.memo-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--primary-color-light);
+  border: 1px solid #ddd;
+  gap: 8px;
+}
+
+.memo-nav button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.memo-nav .print {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.memo-nav .download {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.memo-header {
+  position: relative;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.qr-code {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.memo-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.memo-title h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.memo-title p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.client-info {
+  max-width: 50%;
+}
+
+.client-info .client-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.client-info .client-address {
+  font-size: 14px;
+  color: #777;
+}
+
+.memo-meta {
+  text-align: right;
+  max-width: 50%;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.memo-table th {
+  background-color: #f4f4f4;
+}
+
+.memo-table th,
+.memo-table td {
+  padding: 10px;
+  border: 2px solid #333;
+  text-align: right;
+}
+
+.memo-table th:first-child,
+.memo-table td:first-child {
+  text-align: left;
+}
+
+.grand-total-label {
+  background-color: #f4f4f4;
+}
+
+.grand-total-label strong {
+  display: flex;
+  justify-content: right;
+  font-weight: bold;
+}
+
+.grand-total-value {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.memo-table .total-section {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.total-amount {
+  margin-left: 12px;
+  font-size: 24px;
+}
+
+.notes {
+  font-size: 14px;
+  color: #555;
+}
+
+.optional {
+  color: #aaa;
+}
+
+.note-text {
+  margin-top: 5px;
+  color: #666;
+}
+
+.summary-note {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.summary-memo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.summary-left, .summary-right {
+  display: flex;
+  gap: 8px;
+}
+
+.qr-code svg {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+
+
+/* ===========================
+   PRINT STYLES
+   =========================== */
+@page {
+  size: A4;       /* dynamically A4 or A6 depending on print dialog */
+  margin: 0;      /* remove browser/print margins */
+  bleed: 0;
+}
+
+@media print {
+  /* Hide non-print elements */
+  .sidebar,
+  .memo-nav,
+  .buttons {
+    display: none !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    background: white !important;
+  }
+
+  /* Reset visibility hack */
+  body * {
+    visibility: hidden;
+  }
+  .memo-container,
+  .memo-container * {
+    visibility: visible;
+  }
+
+  /* Printable area */
+  .home {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* Main wrapper */
+  .memo-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1cm;               /* inner spacing */
+    box-sizing: border-box;
+    font-size: 20pt;            /* base font */
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Section spacing */
+  .memo-header,
+  .memo-client {
+    margin-bottom: 0.8em;
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+  .memo-title h2 {
+    font-size: 20pt;
+    margin: 0;
+  }
+
+  .memo-title p {
+    font-size: 13pt;
+    margin: 0;
+  }
+
+  .client-info {
+    font-size: 14pt;
+  }
+
+  .client-info .client-name {
+    font-size: 16pt;
+  }
+
+  .client-info .client-address {
+    font-size: 16pt;
+  }
+
+  .memo-meta p {
+    font-size: 14pt;
+  }
+
+  /* Table styling */
+  .memo-table {
+    flex: 1;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16pt;            /* larger row font */
+  }
+
+  .memo-table th,
+  .memo-table td {
+    padding: 6pt;         /* more padding for rows */
+    border: 1px solid #333;
+    text-align: left;
+    font-size: 16pt;
+    line-height: 1;
+  }
+
+  .memo-table th {
+    font-size: 16pt;            /* header a bit larger */
+    font-weight: bold;
+  }
+
+  /* Footer at bottom */
+  .memo-footer {
+    margin-top: auto;
+    font-size: 16pt;
+  }
+
+  .summary-row-memo {
+    font-size: 16pt;
+  }
+}
+
+
+/* Grand‑total row rule already in your CSS, leave as is */
+.grand-total-row {
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+.memo-table th,
+.memo-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.memo-table th {
+  background-color: #f4f4f4;
+  border-top: 1px solid #ccc;
+}
+
+/* Remove border-top on non-header rows */
+.memo-table td {
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Column widths via colgroup */
+.memo-table col.col-no {
+  width: 10%;
+}
+
+.memo-table col.col-desc {
+  width: 40%;
+}
+
+.memo-table col.col-qty {
+  width: 15%;
+}
+
+.memo-table col.col-rate {
+  width: 15%;
+}
+
+.memo-table col.col-amount {
+  width: 20%;
+}
+
+/* Description column alignment and ellipsis */
+.memo-table th.col-desc,
+.memo-table td.col-desc {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Grand total row */
+.grand-total-row {
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+.grand-total-label {
+  background-color: #f4f4f4;
+  text-align: right;
+}
+
+.grand-total-label strong {
+  font-weight: bold;
+}
+
+.grand-total-value {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: right;
+}

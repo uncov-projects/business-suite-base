@@ -1,0 +1,107 @@
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: #ffffff;
+  flex: 1;
+}
+
+.card :focus{
+  outline: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.itemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemName {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.qtyWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty {
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lowStock {
+  background: #f2ccff;
+  color: #cb34fe;
+}
+
+.outOfStock {
+  background: rgb(255, 204, 204);
+  color: #fe4d4d;
+}
+
+.emptyMessage {
+  text-align: center;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 40px 20px;
+  color: #166534;
+  margin-top: 12px;
+  animation: popIn 0.4s ease;
+}
+
+.emptyIcon {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.emptyText {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
