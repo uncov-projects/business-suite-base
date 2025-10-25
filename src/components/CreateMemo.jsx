@@ -12,6 +12,7 @@ import AddCustomer from "./AddCustomer";
 import { showConfirmDialog, showErrorDialog } from "../utils/dialogUtils";
 import WaitDialog from "../recomponents/WaitDialog";
 import NotesSection from "../recomponents/NotesSection";
+import AdditionalInfoBox from "../recomponents/AdditionalInfoBox";
 
 const CreateMemo = () => {
   const [items, setItems] = useState([
@@ -849,6 +850,7 @@ const CreateMemo = () => {
           </div>
         </div>
       </div>
+      <AdditionalInfoBox />
     </div>
   );
 };

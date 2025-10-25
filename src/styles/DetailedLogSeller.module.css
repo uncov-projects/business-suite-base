@@ -1,0 +1,78 @@
+.sellerDetailsContainer {
+  padding: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+.sellerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.backButton {
+  background: #695cfe;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.backButton:hover {
+  background: #574bdb;
+}
+
+/* Table Section */
+.sellerTableSection {
+  margin-top: 25px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tableHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.logButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.logBtn {
+  border: 1px solid #695cfe;
+  background: transparent;
+  color: #695cfe;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.logBtn:hover {
+  background: #695cfe;
+  color: white;
+}
+
+.active {
+  background: #695cfe;
+  color: white;
+}
+
+.addBtn {
+  background: #695cfe;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addBtn:hover {
+  background: #574bdb;
+}

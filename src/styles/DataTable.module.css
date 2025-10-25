@@ -1,0 +1,89 @@
+/* Table Base */
+.dataTable {
+  width: 100%;
+  background: #ffffff;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.2s ease-in-out;
+  margin-top: 1.5rem;
+}
+
+/* Header */
+.dataTable th {
+  text-align: left;
+  padding: 14px;
+  background: linear-gradient(135deg, #f3f4f6, #e8eaf6);
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border-bottom: 2px solid #dcdcdc;
+}
+
+/* Body Cells */
+.dataTable td {
+  padding: 14px;
+  font-size: 14px;
+  color: #222;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.dataTable tbody tr:hover {
+  background: #f9f9ff;
+  transition: background 0.2s ease;
+}
+
+/* No Data Row */
+.noDataRow {
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Action Cell */
+.actionCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icon Buttons */
+.tableIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Edit Button */
+.editIcon {
+  color: #007bff;
+}
+.editIcon:hover {
+  transform: scale(1.2);
+  color: #0056b3;
+}
+
+/* Delete Button */
+.deleteIcon {
+  color: #dc3545;
+}
+.deleteIcon:hover {
+  transform: scale(1.2);
+  color: #a71d2a;
+}
+
+/* Clickable Rows */
+.clickableRow {
+  cursor: pointer;
+}

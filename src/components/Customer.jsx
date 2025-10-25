@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, parse, isValid } from "date-fns";
 import Pagination from "../recomponents/Pagination";
-
+import { FiEdit, FiTrash2 } from "react-icons/fi";
 const { electron } = window;
 
 const Customer = () => {
@@ -87,7 +87,17 @@ const Customer = () => {
     });
     setShowModal(false);
   };
+  const handleEdit = (row) => {
+    setFormData({ ...row });
+    setShowModal(true);
+    window.electron?.focusWindow();
+  };
 
+  const handleDelete = async (customer_id) => {
+    await electron.deleteInventory(customer_id);
+    fetchCustomers();
+    window.dispatchEvent(new Event("inventoryUpdated"));
+  };
   return (
     <div className="customer-wrapper">
       <div className="topActions">
@@ -210,6 +220,7 @@ const Customer = () => {
             <th>Customer Type</th>
             <th>E-mail</th>
             <th>Join Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -237,6 +248,25 @@ const Customer = () => {
                 </td>
                 <td>{row.email}</td>
                 <td>{row.joinDate}</td>
+                <td
+                  className="actionCell"
+                  onClick={(e) => e.stopPropagation()} // ⬅ prevent row click when using action buttons
+                >
+                  <button
+                    className="tableIconBtn editIcon"
+                    title="Edit"
+                    onClick={() => handleEdit(row)}
+                  >
+                    <FiEdit />
+                  </button>
+                  <button
+                    className="tableIconBtn deleteIcon"
+                    title="Delete"
+                    onClick={() => handleDelete(row.customer_id)}
+                  >
+                    <FiTrash2 />
+                  </button>
+                </td>
               </tr>
             ))
           )}

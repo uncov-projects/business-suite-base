@@ -378,3 +378,71 @@ header .image-text .header-text{
   border-style: solid;
   border-color: transparent #333 transparent transparent;
 }
+
+/* Dropdown submenu */
+.submenu {
+  list-style: none;
+  padding-left: 0;   /* remove margin pushing outside */
+}
+
+.submenu .nav-link {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--tran-03);
+  
+}
+
+.submenu .nav-link:hover {
+  background: var(--primary-color-hover);
+}
+
+.submenu .nav-link.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Icons in submenu should align exactly under main icons */
+.submenu .icon {
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Dropdown arrow stays inside sidebar */
+.dropdown-arrow {
+  margin-left: 0;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.open-dropdown .dropdown-arrow {
+  transform: rotate(90deg);
+}
+/* Dropdown arrow default (sidebar open) */
+.dropdown-arrow {
+  margin-left: auto; /* stays at end when sidebar open */
+  font-size: 14px;
+  transition: transform 0.3s ease, margin 0.3s ease, left 0.3s ease;
+}
+
+.nav-link.open-dropdown:hover .dropdown-arrow {
+    color: black !important; 
+}
+/* Make the Customer dropdown arrow black on hover, always */
+.nav-link:hover .dropdown-arrow {
+    color: black !important;
+}
+
+.open-dropdown .dropdown-arrow {
+  transform: rotate(90deg);
+}
+
+
+.sidebar.close .dropdown-arrow {
+  position: absolute;
+  left: 42px;
+  margin-left: 2px;
+}

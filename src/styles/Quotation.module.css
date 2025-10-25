@@ -1,0 +1,737 @@
+/* Inventory Container */
+.inventoryContainer {
+  padding: 1.25rem;
+  font-family: "Segoe UI", sans-serif;
+  background: #f8f9fc;
+  min-height: 100vh;
+  background: var(--body-color)
+}
+
+.inventoryheading{
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: auto;
+}
+
+/* Top Action Buttons */
+.topActions {
+  display: flex;
+  justify-content: space-between; /* space between heading and button */
+  align-items: center; /* vertically center both */
+  margin-bottom: 24px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.exportBtn,
+.importBtn,
+.createBtn {
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--tran-05);
+}
+
+.exportBtn,
+.importBtn {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.createBtn {
+  background: #695cfe;
+  color: white;
+}
+
+/* Cards Section */
+.cardsContainer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardIcon {
+  font-size: 24px;
+  color: #695cfe;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardLabel {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+.cardLabel span {
+  font-weight: normal;
+  color: #999;
+}
+
+.cardAmountTrend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardAmount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.green {
+  color: green;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.red {
+  color: red;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Filters and Search */
+.filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1;
+  max-width: 70%;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  gap: 12px;
+}
+
+.searchIcon {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.searchIcon input {
+  padding-right: 30px; /* Only add space inside, don't resize the input box */
+}
+
+.searchIcon i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.searchInput,
+.dateFilter {
+  padding: 8px 12px; /* reduced padding for smaller input */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 200px;
+}
+
+.searchInput:focus,
+.dateFilter:focus {
+  border-color: #695cfe;
+}
+
+.filterIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.iconBtn {
+  background: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconBtn:hover {
+  border-color: #695cfe;
+  color: #695cfe;
+}
+
+/* quotation Table */
+.quotationTable {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.quotationTable th {
+  text-align: left;
+  padding: 14px;
+  background: #f1f1f1;
+  color: #333;
+  font-size: 14px;
+}
+
+.quotationTable td {
+  padding: 14px;
+  font-size: 14px;
+  color: #222;
+  border-bottom: 1px solid #eee;
+}
+
+.noDataRow {
+  text-align: center;
+  padding: 5px 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Status Tags */
+.status-label {
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.instock{
+  color: #00a86b; /* Medium green */
+  background-color: #d0f2e4; /* Very light green */
+}
+
+.lowonstock {
+  color: #d97706; /* Rich amber/orange */
+  background-color: #fff7d6; /* Soft yellow */
+}
+
+.outofstock {
+  color: #d61f69; /* Vivid pink/red */
+  background-color: #ffe1ec; /* Light pink */
+}
+
+/* Status Tags */
+.order-status {
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.notrequired {
+  color: #00a86b; /* Medium green */
+  background-color: #d0f2e4; /* Very light green */
+}
+
+.ordered {
+  color: #d97706; /* Rich amber/orange */
+  background-color: #fff7d6; /* Soft yellow */
+}
+
+.notordered {
+  color: #d61f69; /* Vivid pink/red */
+  background-color: #ffe1ec; /* Light pink */
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+  }
+
+  .filtersContainer {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .searchInput,
+  .dateFilter {
+    width: 100%;
+  }
+
+  .topActions {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* // Inventory Cards  */
+
+.overviewCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rightSection {
+  flex: 1;
+  margin-top: 0.25rem;
+}
+
+.productCount {
+  font-size: 1.75rem;
+  margin-bottom: 0.66rem;
+  color: #0c1e38;
+}
+
+.productCount span {
+  font-weight: normal;
+  color: #7c8ba1;
+}
+
+.barWrapper {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+.bar {
+  height: 100%;
+}
+
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #0c1e38;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+/* Filters and Search */
+.filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1;
+  max-width: 70%;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  gap: 12px;
+}
+
+.searchInput,
+.dateFilter {
+  padding: 8px 12px; /* reduced padding for smaller input */
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 200px;
+}
+
+.searchInput:focus,
+.dateFilter:focus {
+  border-color: #695cfe;
+}
+
+.filterIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.iconBtn {
+  background: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconBtn:hover {
+  border-color: #695cfe;
+  color: #695cfe;
+}
+
+.actionIconsCell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.editIcon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #444;
+}
+
+
+.editIcon:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.deleteIcon:hover {
+  color: #dc3545;
+  transform: scale(1.2);
+}
+
+
+/* Dropdwon more filter  */
+.filterIcons {
+  position: relative;
+  display: inline-block;
+}
+
+.iconBtn {
+  background-color:var(--sidebar-color);
+  border: none;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+/* .iconBtn:hover {
+  background-color: #0056b3;
+} */
+
+.iconBtn i.bx-x {
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filterDropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 240px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 100;
+  animation: fadeInSlideDown 0.3s ease forwards;
+}
+
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterCategory {
+  margin-bottom: 8px;
+}
+
+.filterCategoryBtn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.filterCategoryBtn:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.activeFilter {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.nestedFilterContent {
+  margin-top: 6px;
+  padding-left: 12px;
+  border-left: 2px solid var(--primary-color);
+  font-size: 13px;
+}
+
+.nestedRowGrid {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.selectInput,
+.numberInput {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.optionBtn {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.optionBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.selectedOption {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Modal Styles */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal h3 {
+  margin-bottom: 16px;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.inventory-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.inventory-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add any other styles you need for your layout */
+.filterDropdown input,
+.filterDropdown select {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc; /* optional: keep the border consistent */
+}
+
+.typecellwithactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+/* Your dynamic status styles like "pending", "completed", etc. */
+.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.tableIconBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
+}
+
+.editIcon {
+  color: #1d4ed8;
+}
+
+.editIcon:hover {
+  background-color: rgba(29, 78, 216, 0.1);
+  color: #1e40af;
+}
+
+.deleteIcon {
+  color: #dc3545;
+}
+
+.deleteIcon:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.statusFilterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; 
+  text-align: center;
+}
+.orderStatusFilterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; 
+  text-align: center;
+}

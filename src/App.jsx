@@ -8,6 +8,7 @@ import Invoice from "./components/Invoice";
 import CreateInvoice from "./components/CreateInvoice";
 import CreateMemo from "./components/CreateMemo";
 import Customer from "./components/Customer";
+import Purchase from "./components/Purchase";
 import Debtors from "./components/Debtor";
 import Memo from "./components/Memo";
 import ShowBillPage from "./components/ShowBillPage";
@@ -15,6 +16,10 @@ import Invoicebill from "./components/Invoicebill";
 import Settings from "./components/Settings";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import DetailedLogSeller from "./components/DetailedLogSeller";
+import Quotation from "./components/Quotation";
+import Purchase2 from "./components/Purchase2";
+import Commission from "./components/Commission";
 
 const Router =
   import.meta.env.MODE === "development" ? BrowserRouter : HashRouter;
@@ -58,8 +63,13 @@ function App() {
             element={<Invoicebill />}
           />
           <Route path="/customer" element={<Customer />} />
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/purchase2" element={<Purchase2 />} />
+          <Route path="/detailedlogseller/:id" element={<DetailedLogSeller />} />
+          <Route path="/quotation" element={<Quotation />} />
           <Route path="/debtor" element={<Debtors />} />
           <Route path="/show-bill" element={<ShowBillPage />} />
+          <Route path="/commission" element={<Commission />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
       </Routes>

@@ -1,0 +1,372 @@
+:global(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.purchaseTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+color: var(--text-color);
+}
+
+.headerRow{
+  display: flex;
+  justify-content: space-between;
+}
+/* Wrapper */
+.customerWrapper {
+  padding: 24px;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--body-color);
+  min-height: 100vh;
+}
+
+/* Tabs */
+.topActions {
+  display: flex;
+  gap: 10px;
+}
+
+.tabBtn {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #000;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tabBtn:hover {
+  background: #e5e7eb;
+  color: #000;
+}
+
+
+
+
+.activeTab {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Search Filter */
+.filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.searchIcon {
+  position: relative;
+}
+
+.searchInput {
+  padding: 8px 36px 8px 12px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 250px;
+}
+
+.searchInput:focus {
+  border-color: #695cfe;
+}
+
+.searchInputIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7a7a7a;
+  font-size: 16px;
+}
+
+/* Category Table */
+.purchaseTable {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.purchaseTable th {
+  background: #f1f1f1;
+  text-align: left;
+  padding: 14px;
+  color: #333;
+  font-size: 14px;
+}
+
+.purchaseTable td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.clickableRow {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clickableRow:hover {
+  background: #f5f5f5;
+}
+
+/* Inline Modal */
+.inlineModal {
+  position: relative;
+  margin-top: 8px;
+  background: #ffffffd9;
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  animation: slideUp 0.4s ease;
+  transition: width 0.3s ease;
+}
+
+.inlineModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.inlineModalHeader h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.modalHeaderActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.modalCategoryName {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Add Seller Button (Modal Header) */
+.addSellerBtn {
+  background-color: var(--primary-color-light);
+  color: #333;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addSellerBtn:hover {
+  background: #564dfb;
+  color: white;
+}
+
+/* Close Button */
+.closeModalBtn {
+  background: white;
+  border: none;
+  padding: 6px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.closeModalBtn:hover {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+/* Seller Table */
+.sellerTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+}
+
+.sellerTable th {
+  background: #f6f6f6;
+  padding: 12px;
+  color: #555;
+}
+
+.sellerTable td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.sellerTable tr:hover {
+  background: #f8f8ff;
+}
+
+/* Action Buttons */
+.tableIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+}
+
+.editIcon {
+  color: #007bff;
+}
+
+.editIcon:hover {
+  transform: scale(1.2);
+  color: #0056b3;
+}
+
+.deleteIcon {
+  color: #dc3545;
+}
+
+.deleteIcon:hover {
+  transform: scale(1.2);
+  color: #a71d2a;
+}
+
+/* Add/Edit Seller Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalRectangle {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  width: 500px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalRectangle h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.modalRectangle input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: #000;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modalButtons button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.modalButtons button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.modalButtons button:first-child:hover {
+  background: #218838;
+}
+
+.modalButtons button:last-child {
+  background: #dc3545;
+  color: white;
+}
+
+.modalButtons button:last-child:hover {
+  background: #c82333;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Align search + Add Category on one line */
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Add Category Button */
+.addCategoryBtn {
+   background: transparent;
+  border: 1px solid #695cfe;
+  color: #695cfe;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addCategoryBtn:hover {
+background: #695cfe;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(105, 92, 254, 0.3);
+}
+
+.addCategoryBtn.active {
+  background: #695cfe;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(105, 92, 254, 0.35);
+  transform: translateY(-1px);
+}

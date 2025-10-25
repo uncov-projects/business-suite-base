@@ -1,0 +1,98 @@
+.infoBoxContainer {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(105, 92, 254, 0.15);
+  border: 1px solid rgba(105, 92, 254, 0.25);
+  transition: all 0.4s ease-in-out;
+  margin: 5px;
+  width: 100%;
+  transform: scale(1);
+}
+
+.closed {
+  width: 350px;
+  transform: scale(0.98);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.infoBoxHeader {
+  background: #f1f1f1;
+  color: black;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.infoBoxHeader:hover {
+  background: linear-gradient(90deg, #574bdb 0%, #6d28d9 100%);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Title + Icon */
+.infoBoxTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoBoxTitle h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.infoToggleIcon {
+  transition: transform 0.3s ease;
+}
+
+/* Minimize button */
+.minimizeBtn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.minimizeBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* Body */
+.infoBoxBody {
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: #f1f1f1;
+}
+
+.infoBoxContent {
+  padding: 18px 20px;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Closed state visuals */
+.closed .infoBoxHeader {
+  border-radius: 14px;
+}
+
+.closed .infoBoxBody {
+  display: none;
+}
+
+/* Hover lift */
+.infoBoxContainer:hover {
+  transform: translateY(-2px);
+}

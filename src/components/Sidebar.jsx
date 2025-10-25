@@ -24,12 +24,14 @@ const Sidebar = ({ setIsSidebarOpen }) => {
   const menuItems = [
     { label: "dashboard", icon: "bx-home-alt" },
     { label: "inventory", icon: "bx bx-package" },
+    { label: "purchase", icon: "bx bx-cart" },
+    { label: "quotation", icon: "bx bx-file" },
     { label: "sales", icon: "bx-money" },
     { label: "invoice", icon: "bx bx-receipt" },
-    { label: "customer", icon: "bx bx-user-plus" },
-    { label: "debtor", icon: "bx bx-error-circle" },
     { label: "show-bill", icon: "bx-show-alt" },
+    { label: "commission", icon: "bx bx-receipt" },
   ];
+  const [customerDropdown, setCustomerDropdown] = useState(false);
 
   return (
     <nav className={`sidebar ${isOpen ? "open" : "close"}`}>
@@ -84,6 +86,45 @@ const Sidebar = ({ setIsSidebarOpen }) => {
               </li>
             );
           })}
+          {/* Customer Dropdown */}
+          <li
+            className={`nav-link ${customerDropdown ? "open-dropdown" : ""}`}
+            onClick={() => setCustomerDropdown(!customerDropdown)}
+          >
+            <i className="bx bx-user-circle icon"></i>
+            <span className="text nav-text">Customer</span>
+            <i
+              className={`bx ${
+                customerDropdown ? "bx-chevron-down" : "bx-chevron-right"
+              } dropdown-arrow`}
+            ></i>
+            {!isOpen && <span className="tooltip">Customer</span>}
+          </li>
+
+          {customerDropdown && (
+            <ul className="submenu">
+              <li
+                className={`nav-link ${
+                  location.pathname === "/customer" ? "active" : ""
+                }`}
+                onClick={() => navigate("/customer")}
+              >
+                <i className="bx bx-user-plus icon"></i>
+                <span className="text nav-text">Customer</span>
+                {!isOpen && <span className="tooltip">Customer</span>}
+              </li>
+              <li
+                className={`nav-link ${
+                  location.pathname === "/debtor" ? "active" : ""
+                }`}
+                onClick={() => navigate("/debtor")}
+              >
+                <i className="bx bx-error-circle icon"></i>
+                <span className="text nav-text">Debtor</span>
+                {!isOpen && <span className="tooltip">Debtor</span>}
+              </li>
+            </ul>
+          )}
         </ul>
 
         <ul className="menu bottom-content">

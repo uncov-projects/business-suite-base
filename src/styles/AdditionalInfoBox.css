@@ -1,0 +1,82 @@
+/* ---------------- Additional Information Box ---------------- */
+.additional-info-box {
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.additional-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #5e5df0, #818cf8);
+  color: white;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.additional-info-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.additional-info-content {
+  padding: 15px;
+  background: #f9fafb;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  border-top: 1px solid #e5e7eb;
+}
+
+.additional-info-box.collapsed .additional-info-content {
+  display: none;
+}
+
+.additional-info-box.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Matching Table Style */
+.additional-info-content .item-header,
+.additional-info-content .item-row {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.additional-info-content .item-header {
+  font-weight: bold;
+  color: #111827;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 6px;
+}
+
+.additional-info-content .item-row input {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+  color: #111827;
+}
+
+.additional-info-content .item-row input:focus {
+  outline: none;
+  border-color: #5e5df0;
+  box-shadow: 0 0 0 2px rgba(94, 93, 240, 0.2);
+}

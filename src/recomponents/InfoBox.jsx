@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/InfoBox.css";
+import styles from "../styles/InfoBox.module.css";
 import { ChevronDown, ChevronRight, Minus, Maximize2 } from "lucide-react";
 
 const InfoBox = ({ title, children }) => {
@@ -8,29 +8,33 @@ const InfoBox = ({ title, children }) => {
   const toggleBox = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className={`info-box-container ${isOpen ? "open" : "closed"}`}>
-      <div className="info-box-header" onClick={toggleBox}>
-        <div className="info-box-title">
+    <div
+      className={`${styles.infoBoxContainer} ${
+        isOpen ? styles.open : styles.closed
+      }`}
+    >
+      <div className={styles.infoBoxHeader} onClick={toggleBox}>
+        <div className={styles.infoBoxTitle}>
           {isOpen ? (
-            <ChevronDown className="info-toggle-icon" />
+            <ChevronDown className={styles.infoToggleIcon} />
           ) : (
-            <ChevronRight className="info-toggle-icon" />
+            <ChevronRight className={styles.infoToggleIcon} />
           )}
           <h4>{title}</h4>
         </div>
-        <button className="minimize-btn">
+        <button className={styles.minimizeBtn}>
           {isOpen ? <Minus size={16} /> : <Maximize2 size={16} />}
         </button>
       </div>
 
       <div
-        className="info-box-body"
+        className={styles.infoBoxBody}
         style={{
           maxHeight: isOpen ? "300px" : "0",
           opacity: isOpen ? 1 : 0,
         }}
       >
-        <div className="info-box-content">{children}</div>
+        <div className={styles.infoBoxContent}>{children}</div>
       </div>
     </div>
   );
