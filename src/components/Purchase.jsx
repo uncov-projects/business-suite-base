@@ -138,7 +138,7 @@ const Purchase = () => {
             className={styles.tabBtn}
             onClick={() => navigate("/purchase2")}
           >
-            Purchase 2
+            Purchase GST
           </button>
             
         </div>
@@ -161,16 +161,6 @@ const Purchase = () => {
           <button
             className={styles.addCategoryBtn}
             onClick={() => {
-              // Open modal for new category
-              // setEditMode(false);
-              // setFormData({
-              //   customer_id: "",
-              //   customer_name: "",
-              //   gst_no: "",
-              //   phone: "",
-              //   address: "",
-              // });
-              // setShowCategoryModal(true);
               const nextId = `C${String(tableData.length + 1).padStart(
                 3,
                 "0"

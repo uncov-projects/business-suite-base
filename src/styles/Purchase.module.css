@@ -38,18 +38,11 @@ color: var(--text-color);
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.tabBtn:hover {
-  background: #e5e7eb;
-  color: #000;
-}
-
-
-
 
 .activeTab {
-  background: #2563eb;
+  background: var(--primary-color);
   color: white;
-  border-color: #2563eb;
+  border-color: var(--primary-color);
 }
 
 /* Search Filter */
@@ -123,7 +116,7 @@ color: var(--text-color);
 /* Inline Modal */
 .inlineModal {
   position: relative;
-  margin-top: 8px;
+  margin-top: 1.5rem;
   background: #ffffffd9;
   backdrop-filter: blur(6px);
   border-radius: 14px;
@@ -347,9 +340,9 @@ color: var(--text-color);
 
 /* Add Category Button */
 .addCategoryBtn {
-   background: transparent;
-  border: 1px solid #695cfe;
-  color: #695cfe;
+  background: var(--sidebar-color);
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   border-radius: 6px;
   padding: 6px 14px;
   font-size: 14px;
@@ -362,11 +355,4 @@ color: var(--text-color);
 background: #695cfe;
   color: #fff;
   box-shadow: 0 3px 10px rgba(105, 92, 254, 0.3);
-}
-
-.addCategoryBtn.active {
-  background: #695cfe;
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(105, 92, 254, 0.35);
-  transform: translateY(-1px);
 }

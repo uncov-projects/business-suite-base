@@ -126,7 +126,7 @@ const Purchase2 = () => {
       {/* Tabs */}
 
       <div className={styles.headerRow}>
-        <div className={styles.purchaseTitle}>Purchase</div>
+        <div className={styles.purchaseTitle}>Purchase GST</div>
         <div className={styles.topActions}>
           <button
             className={`${styles.tabBtn} ${styles.activeTab}`}
@@ -138,7 +138,7 @@ const Purchase2 = () => {
             className={styles.tabBtn}
             onClick={() => navigate("/purchase2")}
           >
-            Purchase 2
+            Purchase GST
           </button>
             
         </div>

@@ -43,12 +43,6 @@ const DetailedLogSeller = () => {
   }, []);
 
   // Purchase table state
-
-
-  
-  
-
-  
   // Dummy Purchase Data (LR Number, Sender Name, From, To, Date)
   const purchaseData = Array.from({ length: 10 }).map((_, i) => ({
     lrNumber: `LR${1000 + i}`,
@@ -64,7 +58,7 @@ const DetailedLogSeller = () => {
       <div className={styles.sellerHeader}>
         <h2>Seller Details</h2>
         <button className={styles.backButton} onClick={() => navigate(-1)}>
-          ⬅ Back
+          ← Back
         </button>
       </div>
 
