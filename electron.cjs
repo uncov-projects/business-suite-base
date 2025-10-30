@@ -267,44 +267,11 @@ app.whenReady().then(async () => {
       const dbAll = promisify(rawDb.all).bind(rawDb);
       const dbRun = promisify(rawDb.run).bind(rawDb);
 
-      // Check & alter sales table
-      const salesCols = await dbAll(`PRAGMA table_info(sales);`);
-      const salesHasGST = salesCols.some(col => col.name === "gst_number");
-      if (!salesHasGST) {
-        await dbRun(`ALTER TABLE sales ADD COLUMN gst_number TEXT;`);
-        fs.appendFileSync(logPath, "Added gst_number column to sales table.\n");
-      }
-      const salesHasNotes = salesCols.some(col => col.name === "notes_added");
-      if (!salesHasNotes) {
-        await dbRun(`ALTER TABLE sales ADD COLUMN notes_added TEXT DEFAULT '[]';`);
-        fs.appendFileSync(logPath, "Added notes_added column to sales table.\n");
-      }
-
-      // Check & alter invoice table
-      const invoiceCols = await dbAll(`PRAGMA table_info(invoice);`);
-      const invoiceHasGST = invoiceCols.some(col => col.name === "gst_number");
-      if (!invoiceHasGST) {
-        await dbRun(`ALTER TABLE invoice ADD COLUMN gst_number TEXT;`);
-        fs.appendFileSync(logPath, "Added gst_number column to invoice table.\n");
-      }
-      const invoiceHasNotes = invoiceCols.some(col => col.name === "notes_added");
-      if (!invoiceHasNotes) {
-        await dbRun(`ALTER TABLE invoice ADD COLUMN notes_added TEXT DEFAULT '[]';`);
-        fs.appendFileSync(logPath, "Added notes_added column to invoice table.\n");
-      }
-
-      const memoCols = await dbAll(`PRAGMA table_info(memo);`);
-      const memoHasNotes = memoCols.some(col => col.name === "notes_added");
-      if (!memoHasNotes) {
-        await dbRun(`ALTER TABLE memo ADD COLUMN notes_added TEXT DEFAULT '[]';`);
-        fs.appendFileSync(logPath, "Added notes_added column to memo table.\n");
-      }
-
       const inventoryCols = await dbAll(`PRAGMA table_info(inventory);`);
       const inventoryHasHsn = inventoryCols.some(col => col.name === "hsn_code");
       if (!inventoryHasHsn) {
         await dbRun(`ALTER TABLE inventory ADD COLUMN hsn_code TEXT DEFAULT 'NA';`);
-        fs.appendFileSync(logPath, "Added hsn_code column to memo table.\n");
+        fs.appendFileSync(logPath, "Added hsn_code column to inventory table.\n");
       }
 
       const sold_itemsCols = await dbAll(`PRAGMA table_info(sold_items);`);
@@ -313,21 +280,6 @@ app.whenReady().then(async () => {
         await dbRun(`ALTER TABLE sold_items ADD COLUMN hsn_code TEXT DEFAULT 'NA';`);
         fs.appendFileSync(logPath, "Added hsn_code column to sold_items table.\n");
       }
-
-      await dbRun(`
-                    CREATE TABLE IF NOT EXISTS notes (
-                      notes_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                      notes_uuid TEXT NOT NULL,
-                      notes_title TEXT NOT NULL,
-                      notes_flag INTEGER NOT NULL,
-                      notes_content TEXT,
-                      notes_operation TEXT,
-                      notes_value INTEGER,
-                      createdTS DATETIME NOT NULL,
-                      updateTS DATETIME
-                    )
-                  `);
-      fs.appendFileSync(logPath, "Ensured notes table exists.\n");
 
       // Close raw DB
       rawDb.close();
