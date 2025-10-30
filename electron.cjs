@@ -300,6 +300,20 @@ app.whenReady().then(async () => {
         fs.appendFileSync(logPath, "Added notes_added column to memo table.\n");
       }
 
+      const inventoryCols = await dbAll(`PRAGMA table_info(inventory);`);
+      const inventoryHasHsn = inventoryCols.some(col => col.name === "hsn_code");
+      if (!inventoryHasHsn) {
+        await dbRun(`ALTER TABLE inventory ADD COLUMN hsn_code TEXT DEFAULT 'NA';`);
+        fs.appendFileSync(logPath, "Added hsn_code column to memo table.\n");
+      }
+
+      const sold_itemsCols = await dbAll(`PRAGMA table_info(sold_items);`);
+      const sold_itemsHasHsn = sold_itemsCols.some(col => col.name === "hsn_code");
+      if (!sold_itemsHasHsn) {
+        await dbRun(`ALTER TABLE sold_items ADD COLUMN hsn_code TEXT DEFAULT 'NA';`);
+        fs.appendFileSync(logPath, "Added hsn_code column to sold_items table.\n");
+      }
+
       await dbRun(`
                     CREATE TABLE IF NOT EXISTS notes (
                       notes_id INTEGER PRIMARY KEY AUTOINCREMENT,

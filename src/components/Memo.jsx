@@ -246,7 +246,7 @@ const Memo = ({ memo_number: propMemoNumber }) => {
             ))}
 
             {/* Add empty rows */}
-            {renderEmptyRows(items.length + notes.length, 9, 5)}
+            {renderEmptyRows(items.length + notes.length, 8, 5)}
 
             {notes.length > 0 && (
               <>

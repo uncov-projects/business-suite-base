@@ -19,6 +19,7 @@ const CreateInvoice = () => {
       description: "",
       qty: 0,
       unit: "",
+      hsn_code: "",
       cost: "",
       amount: 0,
       item_id: 0,
@@ -173,11 +174,13 @@ const CreateInvoice = () => {
         unique_uuid: invoice_uuid,
         description: item.description,
         unit: item.unit,
+        hsn_code: item.hsn_code,
         quantity: item.qty,
         cost: item.cost,
         amount: item.amount,
         item_id: item.item_id,
       };
+      console.log(itemData)
       await window.electron.addSoldItem(itemData);
     }
 
@@ -234,6 +237,7 @@ const CreateInvoice = () => {
         description: "",
         qty: 0,
         unit: "",
+        hsn_code: "",
         cost: "",
         amount: 0,
         item_id: 0,
@@ -571,6 +575,7 @@ const CreateInvoice = () => {
                 <span>Items</span>
                 <span>QTY</span>
                 <span>UNIT</span>
+                <span>HSN Code</span>
                 <span>Cost</span>
                 <span>Amount</span>
               </div>
@@ -629,6 +634,7 @@ const CreateInvoice = () => {
                               );
                               handleItemChange(index, "item_id", item.item_id);
                               handleItemChange(index, "unit", item.unit);
+                              handleItemChange(index, "hsn_code", item.hsn_code);
                               handleItemChange(
                                 index,
                                 "available_stock",
@@ -665,6 +671,12 @@ const CreateInvoice = () => {
                     type="text"
                     placeholder="Unit"
                     value={item.unit}
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    placeholder="HSN Code"
+                    value={item.hsn_code}
                     disabled
                   />
                   <input

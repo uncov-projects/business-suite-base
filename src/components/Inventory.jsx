@@ -32,6 +32,7 @@ const Inventory = () => {
     item_name: "",
     category: "",
     unit: "",
+    hsn_code: "",
     quantity: "",
     reorder_level: "",
     in_stock: "",
@@ -286,6 +287,7 @@ const Inventory = () => {
       item_name: "",
       category: "",
       unit: "",
+      hsn_code: "",
       quantity: "",
       reorder_level: "",
       in_stock: "",
@@ -762,6 +764,7 @@ const Inventory = () => {
             <th>Code</th>
             <th>Item</th>
             <th>Unit</th>
+            <th>HSN Code</th>
             <th>Cost</th>
             <th>Stock</th>
             <th>Re-Order</th>
@@ -783,6 +786,7 @@ const Inventory = () => {
                 <td>{row.item_code}</td>
                 <td>{row.item_name}</td>
                 <td>{row.unit}</td>
+                <td>{row.hsn_code}</td>
                 <td>₹ {row.cost.toFixed(2)}</td>
                 <td>{row.quantity.toFixed(2)}</td>
                 <td>{row.reorder_level.toFixed(2)}</td>
@@ -901,6 +905,14 @@ const Inventory = () => {
                   </option>
                 ))}
               </select>
+              <input
+                type="text"
+                name="hsn_code"
+                placeholder="HSN Code"
+                value={formData.hsn_code}
+                onChange={handleChange}
+                required
+              />
               <input
                 type="number"
                 name="cost"

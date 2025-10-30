@@ -83,6 +83,7 @@ module.exports = function (dbPath) {
         item_name TEXT NOT NULL,
         category VARCHAR(20) NOT NULL,
         unit VARCHAR(20) NOT NULL,
+        hsn_code TEXT DEFAULT 'NA';
         quantity REAL NOT NULL,
         reorder_level REAL NOT NULL,
         in_stock VARCHAR(50) NOT NULL,
@@ -150,6 +151,7 @@ module.exports = function (dbPath) {
         unique_uuid TEXT NOT NULL,
         description TEXT NOT NULL,
         unit TEXT NOT NULL,
+        hsn_code TEXT DEFAULT 'NA';
         quantity REAL NOT NULL,
         cost REAL NOT NULL,
         amount REAL NOT NULL,
@@ -304,12 +306,12 @@ module.exports = function (dbPath) {
   //Add customer record
   function addInventory(inventory) {
     return new Promise((resolve, reject) => {
-      const { item_code, item_name, category, unit, quantity, reorder_level, in_stock, cost, order_status } = inventory;
+      const { item_code, item_name, category, unit, hsn_code, quantity, reorder_level, in_stock, cost, order_status } = inventory;
       const stmt = db.prepare(`
-      INSERT INTO inventory (item_code, item_name, category, unit, quantity, reorder_level, in_stock, cost, order_status, createdTS)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime())
+      INSERT INTO inventory (item_code, item_name, category, unit, hsn_code, quantity, reorder_level, in_stock, cost, order_status, createdTS)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime())
     `);
-      stmt.run(item_code, item_name, category, unit, quantity, reorder_level, in_stock, cost, order_status, function (err) {
+      stmt.run(item_code, item_name, category, unit, hsn_code, quantity, reorder_level, in_stock, cost, order_status, function (err) {
         if (err) reject(err);
         else resolve({ id: this.lastID, ...inventory });
       });
@@ -482,12 +484,12 @@ module.exports = function (dbPath) {
 
   function addSoldItem(item) {
     return new Promise((resolve, reject) => {
-      const { sold_item_uuid, unique_number, unique_uuid, description, unit, quantity, cost, amount, item_id } = item;
+      const { sold_item_uuid, unique_number, unique_uuid, description, unit, hsn_code, quantity, cost, amount, item_id } = item;
       const stmt = db.prepare(`
-      INSERT INTO sold_items (sold_item_uuid, unique_number, unique_uuid, description, unit, quantity, cost, amount, item_id, createdTS)
-      VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime())
+      INSERT INTO sold_items (sold_item_uuid, unique_number, unique_uuid, description, unit, hsn_code, quantity, cost, amount, item_id, createdTS)
+      VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime())
     `);
-      stmt.run(sold_item_uuid, unique_number, unique_uuid, description, unit, quantity, cost, amount, item_id, function (err) {
+      stmt.run(sold_item_uuid, unique_number, unique_uuid, description, unit, hsn_code, quantity, cost, amount, item_id, function (err) {
         if (err) reject(err);
         else resolve({ id: this.lastID, ...item });
       });
@@ -780,6 +782,7 @@ ORDER BY
         item_code,
         category,
         unit,
+        hsn_code,
         cost,
         quantity,
         reorder_level,
@@ -791,6 +794,7 @@ ORDER BY
        SET
          category = ?,
          unit = ?,
+         hsn_code = ?,
          cost = ?,
          quantity = ?,
          reorder_level = ?,
@@ -814,6 +818,7 @@ ORDER BY
         [
           category,
           unit,
+          hsn_code,
           cost,
           quantity,
           reorder_level,

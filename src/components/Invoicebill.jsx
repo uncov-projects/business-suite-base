@@ -270,7 +270,11 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
                 No.
               </th>
               <th className="col-description">Description of Goods</th>
-
+              <th className="col-hsn">
+                HSN
+                <br />
+                Code
+              </th>
               <th className="col-gst-rate">
                 GST
                 <br />
@@ -294,6 +298,7 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
                 <td className="col-description">
                   <strong>{item.description}</strong>
                 </td>
+                <td className="col-hsn">{item.hsn_code}</td>
                 <td className="col-gst-rate">18 %</td>
                 <td className="col-quantity">
                   {item.quantity} {item.unit}
@@ -314,7 +319,7 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
             ))}
 
             {/* Add empty rows */}
-            {renderEmptyRows(items.length + notes.length, 9, 7)}
+            {renderEmptyRows(items.length + notes.length, 9, 8)}
 
             {notes.length > 0 && (
               <>
@@ -335,7 +340,9 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
                 {notes.map((note, idx) => (
                   <tr key={`note-${idx}`} className="note-row">
                     <td className="col-sl"></td>
-                    <td className="col-description">{note.notes_title}: {note.notes_content}</td>
+                    <td className="col-description">
+                      {note.notes_title}: {note.notes_content}
+                    </td>
                     <td className="col-gst-rate"></td>
                     <td className="col-quantity"></td>
                     <td className="col-rate-incl"></td>
@@ -355,7 +362,7 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
                 <br />
                 Less : (-){decimalPart}
               </td>
-
+              <td className="col-hsn"></td>
               <td className="col-gst-rate"></td>
               <td className="col-quantity"></td>
               <td className="col-rate-incl"></td>
@@ -372,7 +379,7 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
               <td className="col-description">
                 <strong>Total</strong>
               </td>
-
+              <td className="col-hsn"></td>
               <td className="col-gst-rate"></td>
               <td className="col-quantity"></td>
               <td className="col-rate-incl"></td>

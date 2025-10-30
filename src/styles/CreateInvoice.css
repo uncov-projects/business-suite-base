@@ -230,10 +230,16 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 20px;
 }
 
-.item-header,
+.item-header  {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr 0.25fr;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .item-row {
   display: grid;
-  grid-template-columns: 2fr 0.5fr 1fr 1fr 1fr 0.25fr;
+  grid-template-columns: 1.75fr 0.5fr 0.5fr 0.75fr 1fr 1fr 0.25fr;
   gap: 10px;
   align-items: center;
   margin-bottom: 5px;

@@ -152,7 +152,11 @@
 }
 
 .col-description {
-  width: 25%;
+  width: 20%;
+}
+
+.col-hsn {
+  width: 8%;
 }
 
 .col-gst-rate {

@@ -66,7 +66,7 @@ const CreateMemo = () => {
   const [selectedNotes, setSelectedNotes] = useState([]);
   const [showWaitDialog, setShowWaitDialog] = useState(false);
 
-  const TOTAL_LIMIT = 9;
+  const TOTAL_LIMIT = 8;
   const MAX_NOTES = Math.min(
     5,
     TOTAL_LIMIT - items.length - selectedNotes.length
@@ -692,7 +692,7 @@ const CreateMemo = () => {
                 </button>
                 {items.length >= MAX_ITEMS && (
                   <span className="item-limit-msg">
-                    Maximum of 9 items reached. (including Notes/Terms)
+                    Maximum of 8 items reached. (including Notes/Terms)
                   </span>
                 )}
               </div>
