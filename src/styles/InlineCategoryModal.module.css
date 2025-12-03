@@ -1,0 +1,159 @@
+.inlineModal {
+  position: relative;
+  margin-top: 12px;
+  background: #ffffffd9;
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  animation: slideUp 0.4s ease;
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.inlineModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.inlineModalHeader h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.modalCategoryName {
+  color: var(--primary-color, #695cfe);
+  font-weight: 600;
+}
+
+/* Header Actions */
+.modalHeaderActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Add Seller Button */
+.addSellerBtn {
+  background-color: #695cfe1a;
+  color: #333;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addSellerBtn:hover {
+  background: #695cfe;
+  color: white;
+}
+
+/* Close Button */
+.closeModalBtn {
+  background: white;
+  border: none;
+  padding: 6px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.closeModalBtn:hover {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+/* Table */
+.sellerTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+}
+
+.sellerTable th {
+  background: #f6f6f6;
+  padding: 12px;
+  color: #555;
+  font-size: 14px;
+  text-align: left;
+}
+
+.sellerTable td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.sellerTable tr:hover {
+  background: #f8f8ff;
+}
+
+/* No Data Row */
+.noDataRow {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
+
+/* Action Buttons */
+.actionCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.tableIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+}
+
+.editIcon {
+  color: #3b82f6;
+}
+
+.editIcon:hover {
+  transform: scale(1.2);
+  color: #1d4ed8;
+}
+
+.deleteIcon {
+  color: #ef4444;
+}
+
+.deleteIcon:hover {
+  transform: scale(1.2);
+  color: #b91c1c;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

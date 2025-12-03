@@ -10,55 +10,83 @@ const AddTransactionModal = ({ sidebarClosed, onClose, onSubmit }) => {
     date: null,
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onSubmit(paymentData);
     onClose();
   };
 
   return (
     <div
-      className={`${styles.modalOverlay} ${sidebarClosed ? styles.sidebarClosed : ""}`}
+      className={`${styles.modalOverlay} ${
+        sidebarClosed ? styles.sidebarClosed : ""
+      }`}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className={`${styles.modalBox} ${sidebarClosed ? styles.modalExpanded : ""}`}
+        className={`${styles.modalBox} ${
+          sidebarClosed ? styles.modalExpanded : ""
+        }`}
       >
-        <div className={styles.modalHeaderCentered}>
-          <h3>Add Transaction</h3>
-        </div>
+        <h2 className={styles.modalTitle}>Add Transaction</h2>
 
-        <div className={styles.formGroup}>
-          <label>Balance Amount</label>
-          <input type="text" value={paymentData.balance} readOnly />
-        </div>
-        <div className={styles.formGroup}>
-          <label>Payment Amount</label>
-          <input
-            type="number"
-            value={paymentData.payment}
-            onChange={(e) =>
-              setPaymentData({ ...paymentData, payment: e.target.value })
-            }
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label>Date of Payment</label>
-          <DatePicker
-            selected={paymentData.date}
-            onChange={(date) => setPaymentData({ ...paymentData, date })}
-            dateFormat="yyyy-MM-dd"
-            placeholderText="Select date"
-          />
-        </div>
+        <form onSubmit={handleSubmit} className={styles.modalForm}>
+          {/* --- Section: Payment Details --- */}
+          <div className={styles.sectionCard}>
+            <div className={styles.sectionTitle}>Transaction Details</div>
 
-        <div className={styles.modalActions}>
-          <button className={styles.cancelBtn} onClick={onClose}>
-            Cancel
-          </button>
-          <button className={styles.submitBtn} onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+            <div className={styles.formGrid}>
+              <div className={styles.formGroup}>
+                <label>Balance Amount</label>
+                <input
+                  type="text"
+                  value={paymentData.balance}
+                  readOnly
+                  className={styles.readOnlyField}
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Payment Amount</label>
+                <input
+                  type="number"
+                  placeholder="Enter payment amount"
+                  value={paymentData.payment}
+                  onChange={(e) =>
+                    setPaymentData({ ...paymentData, payment: e.target.value })
+                  }
+                  required
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Date of Payment</label>
+                <DatePicker
+                  selected={paymentData.date}
+                  onChange={(date) => setPaymentData({ ...paymentData, date })}
+                  dateFormat="yyyy-MM-dd"
+                  placeholderText="Select date"
+                  className={styles.dateInput}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* --- Sticky Footer --- */}
+          <div className={styles.modalActions}>
+            <button
+              type="button"
+              className={styles.cancelBtn}
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+            <button type="submit" className={styles.saveBtn}>
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

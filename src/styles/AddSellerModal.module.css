@@ -1,37 +1,27 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
-  padding-left: 250px;
-  z-index: 200;
+  justify-content: center;
+  z-index: 1000;
   backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
 }
 
-.sidebarClosed {
-  padding-left: 88px;
-}
-
-/* Modal Box */
-.modalBox {
+/* Modal Container */
+.modalContent {
   background: linear-gradient(145deg, #ffffff, #f8f9ff);
   border-radius: 20px;
-  padding: 28px 34px;
-  width: 600px;
-  max-width: 90%;
+  padding: 32px 36px;
+  width: 700px;
+  max-width: 92%;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
   animation: slideUp 0.4s ease;
-  max-height: 82vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.modalExpanded {
-  max-width: 700px;
+  max-height: 85vh;
 }
 
 /* Header */
@@ -40,7 +30,7 @@
   font-weight: 700;
   color: #1f2937;
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   position: relative;
 }
 
@@ -54,16 +44,16 @@
   border-radius: 3px;
 }
 
-/* Form */
+/* Form Scrollable Area */
 .modalForm {
   flex: 1;
   overflow-y: auto;
-  padding-right: 4px;
+  padding-right: 6px;
 }
 
-/* Section Cards */
+/* Section Styling */
 .sectionCard {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   padding: 18px 22px;
@@ -71,6 +61,7 @@
   box-shadow: 0 3px 10px rgba(105, 92, 254, 0.08);
   transition: all 0.25s ease;
 }
+
 .sectionCard:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(105, 92, 254, 0.12);
@@ -81,68 +72,67 @@
   font-weight: 600;
   color: #4338ca;
   margin-bottom: 12px;
-  border-left: 3px solid #695cfe;
+  border-left: 3px solid #6366f1;
   padding-left: 8px;
-  text-transform: uppercase;
 }
 
-/* Layout */
+/* Form Layout */
 .formGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
-/* Inputs */
 .formGroup label {
-  display: block;
-  font-weight: 600;
   font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
   margin-bottom: 5px;
-  color: #374151;
   text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.formGroup input,
-.dateInput {
+.formGroup input {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 10px;
   background: #f9fafb;
   color: #111827;
-  font-size: 14px;
   transition: all 0.25s ease;
-  outline: none;
 }
 
-.formGroup input:focus,
-.dateInput:focus {
+.formGroup input:focus {
   border-color: #695cfe;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(105, 92, 254, 0.25);
+  box-shadow: 0 0 0 3px rgba(105, 92, 254, 0.2);
 }
 
-.readOnlyField {
-  background: #f3f4f6;
-  color: #6b7280;
+/* Scrollbar Styling */
+.modalForm::-webkit-scrollbar {
+  width: 6px;
 }
-
-/* Sticky Footer */
-.modalActions {
-  position: sticky;
-  bottom: 0;
-  background: linear-gradient(180deg, #f8f9ff, #ffffff);
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  border-top: 1px solid #e5e7eb;
-  padding-top: 12px;
-  margin-top: 20px;
-  z-index: 2;
+.modalForm::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.35);
+  border-radius: 10px;
+}
+.modalForm::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Buttons */
+.modalActions {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #f8f9ff, #ffffff);
+  z-index: 2;
+}
+
 .cancelBtn,
 .saveBtn {
   border: none;
@@ -176,22 +166,10 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Scrollbar (optional aesthetic touch) */
-.modalForm::-webkit-scrollbar {
-  width: 6px;
-}
-.modalForm::-webkit-scrollbar-thumb {
-  background: rgba(105, 92, 254, 0.35);
-  border-radius: 10px;
-}
-.modalForm::-webkit-scrollbar-track {
-  background: transparent;
 }

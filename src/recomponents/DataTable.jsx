@@ -40,7 +40,7 @@ const DataTable = ({ headers, data, onRowClick, onEdit, onDelete }) => {
               {(onEdit || onDelete) && (
                 <td
                   className={styles.actionCell}
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => e.stopPropagation()} // prevents row click when clicking buttons
                 >
                   {onEdit && (
                     <button

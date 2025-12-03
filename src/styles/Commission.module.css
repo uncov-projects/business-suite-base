@@ -5,13 +5,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-.commissionHeading {
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-right: auto;
-}
-
+/* Header */
 .topActions {
   display: flex;
   justify-content: space-between;
@@ -19,28 +13,20 @@
   margin-bottom: 24px;
 }
 
+.commissionHeading {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
 .actionButtons {
   display: flex;
   gap: 10px;
 }
 
-.addCommissionBtn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.addCommissionBtn:hover {
-  background-color: #4e46e5;
-}
-
+/* Buttons */
+.addPartyBtn,
+.addCommissionBtn,
 .iconBtn {
   background: white;
   border: 1px solid #ccc;
@@ -56,34 +42,66 @@
   transition: all 0.3s ease;
 }
 
+.addPartyBtn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.addPartyBtn:hover {
+  background-color: #4e46e5;
+}
+
+.addCommissionBtn:hover,
 .iconBtn:hover {
   border-color: #695cfe;
   color: #695cfe;
 }
 
+/* Filters Row */
 .filtersWrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 16px;
+  padding: 0; /* removed padding to align perfectly with search bar */
+}
+
+.searchSection {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .searchInput {
   padding: 8px 12px;
-  background-color: white;
+  background-color: #fff;
   color: black;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
   outline: none;
-  width: 220px;
+  width: 100%;
+  max-width: 250px;
+  transition: all 0.2s ease;
+  margin: 0; /* removes extra space */
 }
 
 .searchInput:focus {
   border-color: #695cfe;
+  box-shadow: 0 0 0 2px rgba(105, 92, 254, 0.2);
 }
 
+.actionSection {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Table */
 .commissionTable {
   width: 100%;
   background: #fff;
@@ -117,6 +135,7 @@
   font-size: 14px;
 }
 
+/* Nested Table */
 .nestedHeading {
   background: #f8f8f8;
   padding: 8px;
@@ -143,4 +162,20 @@
 .nestedTable th {
   background: var(--primary-color-light);
   font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtersWrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actionSection {
+    justify-content: space-between;
+  }
+
+  .searchInput {
+    max-width: 100%;
+  }
 }

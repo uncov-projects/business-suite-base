@@ -3,15 +3,16 @@ import styles from "../styles/Commission.module.css";
 import { FiFilter, FiPlus } from "react-icons/fi";
 import Pagination from "../recomponents/Pagination";
 import AddCommissionModal from "../recomponents/AddCommissionModal";
+import AddPartyModal from "../recomponents/AddPartyModal";
 
 const Commission = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedRow, setExpandedRow] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [showCommissionModal, setShowCommissionModal] = useState(false);
+  const [showAddPartyModal, setShowAddPartyModal] = useState(false);
 
-  // Dummy data
   const tableData = [
     {
       party_name: "Mohan Traders",
@@ -70,31 +71,56 @@ const Commission = () => {
     setExpandedRow((prev) => (prev === id ? null : id));
   };
 
+  const handleAddParty = (party) => {
+    console.log("New Party Added:", party);
+    setShowAddPartyModal(false);
+  };
+
   return (
     <div className={styles.commissionWrapper}>
+      {/* Header */}
       <div className={styles.topActions}>
         <h2 className={styles.commissionHeading}>Commission</h2>
+
+        {/* 🔁 SWAPPED BUTTONS */}
         <div className={styles.actionButtons}>
-          <button className={styles.addCommissionBtn} onClick={() => setShowModal(true)}>
-            <FiPlus /> Add Commission
+          <button
+            className={styles.addPartyBtn}
+            onClick={() => setShowAddPartyModal(true)}
+          >
+            <FiPlus /> Add Party
           </button>
+        </div>
+      </div>
+
+      {/* Filters Row */}
+      <div className={styles.filtersWrapper}>
+        <div className={styles.searchSection}>
+          <input
+            type="text"
+            placeholder="Search Party"
+            className={styles.searchInput}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.actionSection}>
           <button
             className={styles.iconBtn}
             onClick={() => setFilterDropdownOpen((prev) => !prev)}
           >
             <FiFilter /> More Filters
           </button>
-        </div>
-      </div>
 
-      <div className={styles.filtersWrapper}>
-        <input
-          type="text"
-          placeholder="Search Party"
-          className={styles.searchInput}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+          {/* 🔁 SWAPPED BUTTONS */}
+          <button
+            className={styles.addCommissionBtn}
+            onClick={() => setShowCommissionModal(true)}
+          >
+            <FiPlus /> Add Commission
+          </button>
+        </div>
       </div>
 
       {/* Main Table */}
@@ -176,13 +202,23 @@ const Commission = () => {
         </tbody>
       </table>
 
+      {/* Pagination */}
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
 
-      {showModal && <AddCommissionModal onClose={() => setShowModal(false)} />}
+      {/* Modals */}
+      {showCommissionModal && (
+        <AddCommissionModal onClose={() => setShowCommissionModal(false)} />
+      )}
+      {showAddPartyModal && (
+        <AddPartyModal
+          onClose={() => setShowAddPartyModal(false)}
+          onSave={handleAddParty}
+        />
+      )}
     </div>
   );
 };
