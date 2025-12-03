@@ -199,7 +199,7 @@ const InvoiceBill = ({ invoice_number: propInvoiceNumber }) => {
           </div>
           <div className="header-center">
             <h3>BILL OF SUPPLY</h3>
-            <h2>Rambhorose Iron Stores</h2>
+            <h2>Rambharose Iron Stores</h2>
             <p>GANESH NAGAR, GONDIA, 441601 (M.H.)</p>
             <p>
               <b>Tel. : 9226716321, 7499600749, 8459102641</b>
