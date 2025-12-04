@@ -83,7 +83,7 @@ module.exports = function (dbPath) {
         item_name TEXT NOT NULL,
         category VARCHAR(20) NOT NULL,
         unit VARCHAR(20) NOT NULL,
-        hsn_code TEXT DEFAULT 'NA';
+        hsn_code TEXT DEFAULT 'NA',
         quantity REAL NOT NULL,
         reorder_level REAL NOT NULL,
         in_stock VARCHAR(50) NOT NULL,
@@ -151,7 +151,7 @@ module.exports = function (dbPath) {
         unique_uuid TEXT NOT NULL,
         description TEXT NOT NULL,
         unit TEXT NOT NULL,
-        hsn_code TEXT DEFAULT 'NA';
+        hsn_code TEXT DEFAULT 'NA',
         quantity REAL NOT NULL,
         cost REAL NOT NULL,
         amount REAL NOT NULL,
